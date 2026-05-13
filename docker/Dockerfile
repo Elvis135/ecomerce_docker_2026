@@ -9,7 +9,7 @@ WORKDIR $APP_HOME
 EXPOSE 8084
 
 # Copiar el JAR generdo por MAVEN (nombre fijo de la version)
-COPY tarjet/ecommerce-*.jar app.jar
+COPY target/ecommerce-*.jar app.jar
 
 #Usuario no-root para seguridad
 RUN useradd -m appuser && chown -R appuser:appuser $APP_HOME
