@@ -101,14 +101,14 @@ pipeline {
                         // 🧹 Limpieza de despliegue anterior
                         echo '1️⃣ Limpiando despliegue anterior...'
                         try {
-                            sh "docker-compose -p ${DOCKER_PROJECT_NAME} down -v --remove-orphans"
+                            sh "docker compose -p ${DOCKER_PROJECT_NAME} down -v --remove-orphans"
                         } catch (Exception e) {
                             echo "⚠️ Advertencia: ${e.getMessage()}"
                         }
 
                         // 🏗️ Construcción y levantamiento de servicios
                         echo '2️⃣ Construyendo y levantando servicios...'
-                        sh "docker-compose -p ${DOCKER_PROJECT_NAME} up -d --build"
+                        sh "docker compose -p ${DOCKER_PROJECT_NAME} up -d --build"
 
                         // 💾 Inicialización de la base de datos
                         echo '3️⃣ Inicializando base de datos...'
